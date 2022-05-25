@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Area = styled.div`
     margin: auto;
     max-width: 980px;
-    padding: 30px 0;
+    padding: 15px;
 `;
 
 export const Header = styled.h1`
@@ -31,6 +31,12 @@ export const PhotoList = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+
+    @media(max-width:600px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
 `;
 
 export const UploadForm = styled.form`
