@@ -58,7 +58,9 @@ export default function Inicio() {
                 </C.ImagemContainer>
             
             <C.Area>
-        
+                <C.ContainerTitulo>
+                    <C.Titulo>Galeria de Fotos</C.Titulo>
+                </C.ContainerTitulo>
                 <C.UploadForm method="POST" onSubmit={handleFormSubmit}>
                     <input type="file" name="image" />
                     <input type="submit" value="Enviar" />

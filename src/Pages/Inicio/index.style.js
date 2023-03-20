@@ -11,7 +11,18 @@ export const Container = styled.div`
 export const Area = styled.div`
     margin: auto;
     max-width: 980px;
-    padding-top: 120px;
+`;
+export const ContainerTitulo = styled.div`
+    margin: auto;
+    max-width: 980px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+`;
+export const Titulo = styled.h1`
+    color: #fff;
+    font-family: cursive;
+    font-size: 40px;
 `;
 
 export const Header = styled.h1`
