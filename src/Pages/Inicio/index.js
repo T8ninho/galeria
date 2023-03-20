@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react";
+import Appbar from "../../Components/AppBar";
+import Footer from "../../Components/Footer";
 import PhotoItem from "../../Components/PhotoItem";
 import * as Photos from '../../libs/EnviarFoto'
 import * as C from './index.style';
@@ -48,7 +50,13 @@ export default function Inicio() {
     return(
         
         <C.Container>
-                <C.ImagemContainer isOpen={ModalOpen}>
+            {!ModalOpen &&
+                <Appbar />
+            }
+                
+            
+            <C.Area>
+            <C.ImagemContainer isOpen={ModalOpen}>
                     <C.ImagemAberta>
                         <C.Imagem src={ImageATV}></C.Imagem>
                             <C.BotaoClose onClick={() => setModalOpen(false)}>
@@ -56,11 +64,6 @@ export default function Inicio() {
                             </C.BotaoClose>
                     </C.ImagemAberta>
                 </C.ImagemContainer>
-            
-            <C.Area>
-                <C.ContainerTitulo>
-                    <C.Titulo>Galeria de Fotos</C.Titulo>
-                </C.ContainerTitulo>
                 <C.UploadForm method="POST" onSubmit={handleFormSubmit}>
                     <input type="file" name="image" />
                     <input type="submit" value="Enviar" />
@@ -91,6 +94,8 @@ export default function Inicio() {
                 }
 
             </C.Area>
+            <Footer />
+            
         </C.Container>
     )
 }

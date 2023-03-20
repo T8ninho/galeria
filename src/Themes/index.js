@@ -1,13 +1,18 @@
 const Theme = {
     colors: {
         primary: '#ED8975',
-        secondary: '#B2E7E8',
-        tertiary: '#8FB9AA',
+        secondary: '#3D3F43',
+        bgimage: '#FFFFFF',
         quaternary: '#F2D096',
         quintenary: '#304D63',
     },
-    numbers: {
-        shadow: 0.5,
+    botoes: {
+        primary: '#FF8C00',
+        secondary: '#FFFFFF',
+        tertiary: '#000000',
+    },
+    text: {
+        primary: '#FFFFFF',
     },
 }
 
