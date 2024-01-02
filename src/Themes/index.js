@@ -1,10 +1,10 @@
 const Theme = {
     colors: {
         primary: '#ED8975',
-        secondary: '#3D3F43',
+        secondary: '#ffffffaa',
         bgimage: '#FFFFFF',
         quaternary: '#F2D096',
-        quintenary: '#304D63',
+        quintenary: '#0a0c21',
     },
     botoes: {
         primary: '#FF8C00',
@@ -12,7 +12,8 @@ const Theme = {
         tertiary: '#000000',
     },
     text: {
-        primary: '#FFFFFF',
+        primary: '#000',
+        secondary: '#fff',
     },
 }
 

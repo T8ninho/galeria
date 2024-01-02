@@ -5,8 +5,8 @@ export const Container = styled.div`
     position: sticky;
     top: 0;
     z-index: 1;
-    background: rgba(255,255,255,0.027);
-    box-shadow: 0 8px 32px 0 rgba(14,19,82,037);
+    background:  ${Theme.text.quintenary};
+    box-shadow: 0 1px 15px 0 rgba(255,255,255,0.7);
     backdrop-filter: blur(5px);
     border-bottom-style: double;
     border-color: rgba(255,255,255,0.3);
@@ -68,7 +68,7 @@ export const Container = styled.div`
 
 
 export const Titulo = styled.h1`
-    color: ${Theme.text.primary};
+    color: ${Theme.text.secondary};
     font-family: cursive;
     font-size: 40px;
 

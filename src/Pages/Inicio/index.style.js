@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import Theme from "../../Themes";
 import ReactModal from "react-modal";
-import BackgroundImage from '../../Images/img.png';
-import uploadIMG from '../../Images/portal.webp';
 
 export const Container = styled.div`
     width: 100%;
@@ -11,7 +9,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     background-color: ${Theme.colors.quintenary};
-    background-image: url(${BackgroundImage});
     
 `;
 
@@ -40,7 +37,6 @@ export const ScreenWarning = styled.div`
     border-radius: 10px;
     color: #fff;
     padding: 10px;
-    background-image: url(${uploadIMG});
     box-shadow: 0 0 32px 8px rgba(14,19,82,037);
     .emoji {
         font-size: 50px;
@@ -62,8 +58,7 @@ export const PhotoList = styled.div`
 
 export const UploadForm = styled.form`
     background-color: ${Theme.colors.secondary};
-    box-shadow: 0 0 32px 8px rgba(14,19,82,037);
-    background-image: url(${uploadIMG});
+    box-shadow: rgba(255,255,255,0.7);
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 30px;
