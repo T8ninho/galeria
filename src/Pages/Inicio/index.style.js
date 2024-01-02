@@ -37,7 +37,7 @@ export const ScreenWarning = styled.div`
     border-radius: 10px;
     color: #fff;
     padding: 10px;
-    box-shadow: 0 0 32px 8px rgba(14,19,82,037);
+    box-shadow: rgba(255,255,255,0.7);
     .emoji {
         font-size: 50px;
         margin-bottom: 20px;
