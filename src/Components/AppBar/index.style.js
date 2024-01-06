@@ -2,13 +2,17 @@ import styled from "styled-components";
 import Theme from "../../Themes";
 
 export const Container = styled.div`
-    background:  ${Theme.text.quintenary};
+    background:  ${Theme.colors.quaternary};
     box-shadow: 0 1px 15px 0 rgba(255,255,255,0.7);
     backdrop-filter: blur(5px);
     border-color: rgba(255,255,255,0.3);
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
 
 .logo {
     padding: 15px;
@@ -45,6 +49,7 @@ export const Titulo = styled.h1`
     color: ${Theme.text.secondary};
     font-family: cursive;
     font-size: 40px;
+    text-shadow: #000 0 0 6px;
 
     @media screen and (max-width: 1000px) {
         font-size: 30px;

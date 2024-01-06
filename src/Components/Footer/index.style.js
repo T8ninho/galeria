@@ -8,7 +8,7 @@ export const Container = styled.div`
     justify-content: center;
     display: flex;
     background-color: ${Theme.colors.secondary};
-    position: relative;
+    position: static;
     bottom: 0;
     width: 100%;
 `;

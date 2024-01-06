@@ -4,12 +4,19 @@ import ReactModal from "react-modal";
 
 export const Container = styled.div`
     background-color: ${Theme.colors.quintenary};
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-between;
     
 `;
 
 export const Area = styled.div`
     padding-top: 30px;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 980px;
 `;
 
@@ -57,7 +64,7 @@ export const UploadForm = styled.form`
         margin: 0 20px;
 
         &:hover {
-            opacity: .9;
+            opacity: .5;
         }
     }
 `;

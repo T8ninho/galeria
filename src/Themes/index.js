@@ -3,7 +3,7 @@ const Theme = {
         primary: '#ED8975',
         secondary: '#ffffffaa',
         bgimage: '#FFFFFF',
-        quaternary: '#F2D096',
+        quaternary: 'rgba(255,255,255,0.1)',
         quintenary: '#0a0c21',
     },
     botoes: {
