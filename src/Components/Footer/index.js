@@ -4,7 +4,8 @@ export default function Footer() {
     return(
         <C.Container>
             <C.Area>
-            ©2021-2023 <a href='http://t8ninho.com/'>T8ninho</a> | Todos os direitos reservados
+             <a href='http://t8ninho.com/'>T8ninho</a>
+             <p>| Todos os direitos reservados ©2021-2023</p>
             </C.Area>
         </C.Container>
     )

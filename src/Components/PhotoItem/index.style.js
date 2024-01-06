@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-    background-color: transparent;
     display: flex;
     border-color: transparent;
-    border-left: 0;
-    border-right: 0;
-    
-    
-    header {
-        background-color: #fff;
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.5s;
-        border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s;
+    border-radius: 8px;
+    padding: 10px;
+
+    :nth-child(odd) {
+        background: linear-gradient(-229deg, #fbd52d, #ef3a2b);
+    }
+    :nth-child(even) {
+        background: linear-gradient(-229deg, #ff70af, #5fabf5);
     }
     a {
         display: flex;
         border-radius: 7px;
     }
-    header:hover{
+    :hover{
         transform:  scale(1.1);
     }
     img {
@@ -28,6 +28,7 @@ export const Container = styled.button`
         border-radius: 7px;
         border-style: double;
         border-color: #fff;
+        background: #fff;
         object-fit: cover;
         object-position: center;
         transition: 

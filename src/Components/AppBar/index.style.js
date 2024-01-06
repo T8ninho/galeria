@@ -2,32 +2,20 @@ import styled from "styled-components";
 import Theme from "../../Themes";
 
 export const Container = styled.div`
-    position: sticky;
-    top: 0;
-    z-index: 1;
     background:  ${Theme.text.quintenary};
     box-shadow: 0 1px 15px 0 rgba(255,255,255,0.7);
     backdrop-filter: blur(5px);
-    border-bottom-style: double;
     border-color: rgba(255,255,255,0.3);
-    
-
-    .container {
-    max-width: 80vw;
-    margin: 0 auto;
-}
-.navbar {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    justify-content: space-between;
-}
-.navbar a {
-    text-decoration: none;
-    color: #fff;
-}
+
 .logo {
-    
     padding: 15px;
+    border-radius:7px;
+    transition: 
+    translate 0.25s,
+    box-shadow 0.25s;
 }
 
 .logo img {
@@ -35,24 +23,11 @@ export const Container = styled.div`
     border-radius:7px;
     
 }
-.logo {
-    border-radius:7px;
-    transition: 
-        translate 0.25s,
-        box-shadow 0.25s;
-}
 .logo:hover {
     translate: 0 -5px ;
 }
+
 @media screen and (max-width: 1000px) {
-    .menu {
-        width: 100vw;
-        max-height: 0;
-        overflow: hidden;
-    }
-    .navbar {
-        flex-wrap: wrap;
-    }
     .list {
         flex-direction: column;
         align-items: center;
@@ -65,7 +40,6 @@ export const Container = styled.div`
 }
 
 `
-
 
 export const Titulo = styled.h1`
     color: ${Theme.text.secondary};

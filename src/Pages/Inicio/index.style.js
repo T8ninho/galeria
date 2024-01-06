@@ -3,11 +3,6 @@ import Theme from "../../Themes";
 import ReactModal from "react-modal";
 
 export const Container = styled.div`
-    width: 100%;
-    min-height: 100vh;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: column;
     background-color: ${Theme.colors.quintenary};
     
 `;
@@ -16,20 +11,6 @@ export const Area = styled.div`
     padding-top: 30px;
     margin: auto;
     max-width: 980px;
-`;
-export const ContainerTitulo = styled.div`
-    margin: auto;
-    max-width: 980px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-`;
-
-export const Header = styled.h1`
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    margin-bottom: 30px;
 `;
 
 export const ScreenWarning = styled.div`
@@ -81,7 +62,7 @@ export const UploadForm = styled.form`
     }
 `;
 
-export const ImagemContainer = styled(ReactModal)`
+export const ModalContainer = styled(ReactModal)`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,20 +70,20 @@ export const ImagemContainer = styled(ReactModal)`
     height: 100%;
 `;
 
-export const ImagemAberta = styled.div`
+export const ModalAberta = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 30px;
     box-shadow: 0 8px 32px 0 rgba(14,19,82,1);
 `;
-export const Imagem = styled.img`
+export const ModalImagem = styled.img`
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     max-height: 90vh;
     max-width: 90vw;
     background-color: ${Theme.colors.bgimage};
 `;
-export const BotaoClose = styled.button`
+export const ModalBotaoClose = styled.button`
     background-color: ${Theme.botoes.primary};
     font-size: 20px;
     font-weight: bold;

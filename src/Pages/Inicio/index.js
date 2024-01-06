@@ -56,14 +56,14 @@ export default function Inicio() {
                 
             
             <C.Area>
-            <C.ImagemContainer isOpen={ModalOpen}>
-                    <C.ImagemAberta>
-                        <C.Imagem src={ImageATV}></C.Imagem>
-                            <C.BotaoClose onClick={() => setModalOpen(false)}>
+                <C.ModalContainer isOpen={ModalOpen}>
+                    <C.ModalAberta>
+                        <C.ModalImagem src={ImageATV}/>
+                            <C.ModalBotaoClose onClick={() => setModalOpen(false)}>
                                 Fechar imagem
-                            </C.BotaoClose>
-                    </C.ImagemAberta>
-                </C.ImagemContainer>
+                            </C.ModalBotaoClose>
+                    </C.ModalAberta>
+                </C.ModalContainer>
                 <C.UploadForm method="POST" onSubmit={handleFormSubmit}>
                     <input type="file" name="image" />
                     <input type="submit" value="Enviar" />
