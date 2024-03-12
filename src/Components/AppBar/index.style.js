@@ -12,7 +12,7 @@ export const Container = styled.div`
     position: sticky;
     top: 0;
     z-index: 1;
-    width: 100%;
+    width: 100%; 
 
 .logo {
     padding: 15px;
@@ -32,13 +32,8 @@ export const Container = styled.div`
 }
 
 @media screen and (max-width: 1000px) {
-    .list {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
     .logo img {
-        width: 65px;
+        width: 50px;
     border-radius:7px;
     }
 }
@@ -48,7 +43,7 @@ export const Container = styled.div`
 export const Titulo = styled.h1`
     color: ${Theme.text.secondary};
     font-family: cursive;
-    font-size: 40px;
+    font-size: 30px;
     text-shadow: #000 0 0 6px;
 
     @media screen and (max-width: 1000px) {

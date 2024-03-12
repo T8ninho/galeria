@@ -2,9 +2,11 @@ import { storage } from '../libs/firebase';
 import { ref, listAll, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { v4 as createID } from 'uuid';
 
+
+const BancoImage = "Imagens";
+
 export const getAll = async () => {
     let list = [];
-    const BancoImage = "imagesd";
 
     const imagesFolder = ref(storage, BancoImage);
     const photoList = await listAll(imagesFolder);
@@ -22,7 +24,6 @@ export const getAll = async () => {
 }
 
 export const insert = async (file) => {
-    const BancoImage = "imagesd";
 
     if(['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'].includes(file.type)) {
 
@@ -41,3 +42,4 @@ export const insert = async (file) => {
         return new Error("Tipo de arquivo não permitido.")
     }
 }
+

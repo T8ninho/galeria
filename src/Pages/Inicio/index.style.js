@@ -37,11 +37,12 @@ export const PhotoList = styled.div`
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 
-    @media(max-width:600px) {
-        display: grid;
+    @media(max-width:1000px) {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2px;
-    } 
+    }
+    @media(max-width:700px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `;
 
 export const UploadForm = styled.form`

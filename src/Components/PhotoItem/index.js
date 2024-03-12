@@ -4,7 +4,9 @@ export const PhotoItem = ({ url, name, ImgAtiva }) => {
 
     return (
         <C.Container onClick={ImgAtiva}>
-            <img src={url} alt={name} />
+            <div>
+                <img src={url} alt={name} />
+            </div>
             {/* <h4 className='HouverContainer'>Nome aleatório:</h4> */}
             {/* <p className='HouverContainer'>{name}</p> */}
         </C.Container>
