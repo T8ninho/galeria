@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Theme from "../../Themes";
 import ReactModal from "react-modal";
+import Background from '../../Images/Background.svg';
 
 export const Container = styled.div`
     background-color: ${Theme.colors.quintenary};
@@ -34,48 +35,93 @@ export const ScreenWarning = styled.div`
 
 export const PhotoList = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
 
     @media(max-width:1000px) {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
     @media(max-width:700px) {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 `;
 
 export const UploadForm = styled.form`
-    background-color: ${Theme.colors.secondary};
+    background: ${Theme.colors.secondary} url(${Background});
     box-shadow: rgba(255,255,255,0.7);
-    padding: 15px;
     border-radius: 10px;
     margin-bottom: 30px;
+    padding: 10px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    max-width: 85vw;
 
-    input[type=submit] {
-        background-color: ${Theme.botoes.primary};
-        border: 0;
-        color: ${Theme.botoes.secondary};
-        font-weight: bold;
-        padding: 8px 16px;
-        font-size: 15px;
-        border-radius: 10px;
-        margin: 0 20px;
-
-        &:hover {
-            opacity: .5;
-        }
+    div {
+        display: flex;
+        gap: 5px;
     }
+`;
+
+export const SelecionarIMG = styled.label`
+    background-color: ${Theme.botoes.secondary};
+    color: ${Theme.text.secondary};
+    font-weight: bold;
+    padding: 8px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
+`;
+export const EnviarIMG = styled.input`
+    background-color: ${Theme.botoes.primary};
+    border: 0;
+    color: ${Theme.text.secondary};
+    font-weight: bold;
+    padding: 8px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
+`;
+export const CancelarIMG = styled.input`
+    background-color: ${Theme.botoes.tertiary};
+    border: 0;
+    color: ${Theme.text.secondary};
+    font-weight: bold;
+    padding: 8px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
+`;
+
+export const ImagePreviewContainer = styled.div`
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    border: #0000005a 3px solid;
+    overflow: hidden;
+    margin: 10px;
+`;
+export const ImagePreview = styled.img`
+    height: 100%;
 `;
 
 export const ModalContainer = styled(ReactModal)`
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
-    background-color: '#000';
+    backdrop-filter: blur(2px);
     height: 100%;
 `;
 

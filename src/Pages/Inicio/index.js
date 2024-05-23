@@ -5,6 +5,7 @@ import PhotoItem from "../../Components/PhotoItem";
 import * as Photos from '../../libs/EnviarFoto';
 import * as C from './index.style';
 import ImageCompressor from 'image-compressor.js';
+import { useRef } from "react";
 
 export default function Inicio() {
     const [uploading, setUploading] = useState(false);
@@ -12,6 +13,8 @@ export default function Inicio() {
     const [photos, setPhotos] = useState([]);
     const [ImageATV, setImageATV] = useState(null);
     const [ModalOpen, setModalOpen] = useState(false);
+    const [imagePreview, setImagePreview] = useState(null);
+    const fileInputRef = useRef(null);
 
     useEffect(() => {
         const getPhotos = async () => {
@@ -22,6 +25,31 @@ export default function Inicio() {
         getPhotos();
     }, []);
 
+    useEffect(() => {
+        if (ModalOpen) {
+            document.body.classList.add('no-scroll');
+        } else {
+            document.body.classList.remove('no-scroll');
+        }
+        
+        // Cleanup on unmount
+        return () => {
+            document.body.classList.remove('no-scroll');
+        };
+    }, [ModalOpen]);
+
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            setImagePreview(null);
+        }
+    };
     const handleFormSubmit = async (e) => {
         e.preventDefault();
 
@@ -34,6 +62,10 @@ export default function Inicio() {
             const compressedImage = await compressImage(file);
             let result = await Photos.insert(compressedImage);
             setUploading(false);
+            setImagePreview(null);
+            if (fileInputRef.current) {
+                fileInputRef.current.value = '';
+            }
 
             if (result instanceof Error) {
                 alert(`${result.name} - ${result.message}`);
@@ -44,6 +76,13 @@ export default function Inicio() {
             }
         }
     }
+
+    const handleFormReset = () => {
+        setImagePreview(null);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
 
     const compressImage = async (file) => {
         const compressedImage = await new Promise((resolve, reject) => {
@@ -72,7 +111,7 @@ export default function Inicio() {
             }
 
             <C.Area>
-                <C.ModalContainer isOpen={ModalOpen}  preventScroll={true} >
+                <C.ModalContainer isOpen={ModalOpen} >
                     <C.ModalAberta>
                         <C.ModalImagem src={ImageATV} />
                         <C.ModalBotaoClose onClick={() => setModalOpen(false)}>
@@ -81,9 +120,32 @@ export default function Inicio() {
                     </C.ModalAberta>
                 </C.ModalContainer>
                 <C.UploadForm method="POST" onSubmit={handleFormSubmit}>
-                    <input type="file" name="image" />
-                    <input type="submit" value="Enviar" />
+                    <div>
+                        <C.SelecionarIMG htmlFor="file-upload" className="custom-file-upload">
+                            {imagePreview ? 'Trocar imagem' : 'Enviar'}
+                        </C.SelecionarIMG>
+                        {imagePreview && 
+                            <>
+                                <C.CancelarIMG type="button" onClick={handleFormReset} value="Cancelar" />
+                                <C.EnviarIMG type="submit" value="Enviar" />
+                            </>
+                        }
+                        <input 
+                            id="file-upload"
+                            type="file" 
+                            name="image" 
+                            onChange={handleImageChange}
+                            ref={fileInputRef}
+                            style={{ display: 'none' }}
+                        />
+                        
+                    </div>
                     {uploading && "Enviando...😍"}
+                    {imagePreview && 
+                        <C.ImagePreviewContainer>
+                            <C.ImagePreview src={imagePreview} alt="Preview" />
+                        </C.ImagePreviewContainer>
+                    }
                 </C.UploadForm>
 
                 {loading &&

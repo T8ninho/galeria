@@ -21,11 +21,9 @@ export const Area = styled.div`
     justify-content: center;
     width: 100%;
     font-weight: bold;
-    text-align: center;
-
     
     d {
-        color: #ff0000
+        color: #ff0000;        
     }
     p {
         padding-right: 5px;
@@ -35,5 +33,11 @@ export const Area = styled.div`
         text-decoration: none;
         color: ${Theme.text.primary};
         border-bottom: 2px dotted #000;
+        cursor: pointer;
+        
+        &:hover {
+            color: #fff;
+            border-bottom: 2px dotted #fff;
+        }
     }
 `;

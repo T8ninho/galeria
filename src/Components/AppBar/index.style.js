@@ -4,7 +4,7 @@ import Theme from "../../Themes";
 export const Container = styled.div`
     background:  ${Theme.colors.quaternary};
     box-shadow: 0 1px 15px 0 rgba(255,255,255,0.7);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
     border-color: rgba(255,255,255,0.3);
     display: flex;
     justify-content: space-around;
@@ -12,7 +12,8 @@ export const Container = styled.div`
     position: sticky;
     top: 0;
     z-index: 1;
-    width: 100%; 
+    width: 100%;
+    height: 80px;
 
 .logo {
     padding: 15px;

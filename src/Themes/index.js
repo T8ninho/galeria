@@ -8,8 +8,8 @@ const Theme = {
     },
     botoes: {
         primary: '#FF8C00',
-        secondary: '#FFFFFF',
-        tertiary: '#000000',
+        secondary: '#0099ff',
+        tertiary: '#ff0000',
     },
     text: {
         primary: '#000',

@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-  
-//Inicio | script p/ desativar Right Click do mouse
 
-window.addEventListener('contextmenu', (event) => event.preventDefault())
+//Desativa Right Click do mouse.
+window.addEventListener('contextmenu', (event) => event.preventDefault());
 
-//Fim    | script p/ desativar Right Click do mouse
+//Bloqueia baixar ação de arrastar imagens para download.
+window.addEventListener('dragstart', (event) => event.preventDefault());
 
 root.render(
   <React.StrictMode>
