@@ -72,7 +72,7 @@ export default function Inicio() {
             }
 
             <C.Area>
-                <C.ModalContainer isOpen={ModalOpen}>
+                <C.ModalContainer isOpen={ModalOpen}  preventScroll={true} >
                     <C.ModalAberta>
                         <C.ModalImagem src={ImageATV} />
                         <C.ModalBotaoClose onClick={() => setModalOpen(false)}>

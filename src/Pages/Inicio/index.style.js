@@ -74,7 +74,8 @@ export const ModalContainer = styled(ReactModal)`
     display: flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(10px);
+    background-color: '#000';
     height: 100%;
 `;
 

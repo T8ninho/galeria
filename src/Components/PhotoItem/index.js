@@ -1,7 +1,6 @@
 import * as C from './index.style'
 
 export const PhotoItem = ({ url, name, ImgAtiva }) => {
-
     return (
         <C.Container onClick={ImgAtiva}>
             <div>
