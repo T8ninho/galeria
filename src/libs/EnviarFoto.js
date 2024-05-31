@@ -24,7 +24,7 @@ export const getAll = async () => {
             date: uploadDate  // Adicionando a data ao objeto
         });
 
-        console.log('data aqui:', uploadDate);  // Exibindo a data no console
+        // console.log('data aqui:', uploadDate);  // Exibindo a data no console
     }
 
     // Ordenar a lista pela data (mais recentes primeiro)
