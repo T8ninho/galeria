@@ -1,1 +1,1 @@
-![Project thumbnail](https://t8ninho.com/static/media/GaleriaWeb.dae38c1ec18e800d5212.png)
+![Project thumbnail](https://t8ninho.com/static/media/GaleriaWeb.f9a1222821d4efcf4c1c.jpg)
