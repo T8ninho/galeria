@@ -1,63 +1,51 @@
-import { useState } from 'react';
-import { storage, db, BancoImage } from '../libs/firebase';
-import { ref, uploadBytes, getDownloadURL, getMetadata } from 'firebase/storage';
-import { collection, addDoc } from 'firebase/firestore';
+import { storage } from '../libs/firebase';
+import { ref, listAll, getDownloadURL, uploadBytes, getMetadata } from 'firebase/storage';
 import { v4 as createID } from 'uuid';
-// import ImageCompressor from 'image-compressor.js';
 
-export const EnviarFoto = ({onUpload}) => {
-    const [Imagens, setImagens] = useState([]);
+const BancoImage = "Imagens";
 
-    // const compressImage = async (file) => {
-    //     const compressedImage = await new Promise((resolve, reject) => {
-    //         new ImageCompressor(file, {
-    //             quality: 0.5, // Defina a qualidade da imagem desejada aqui (0.1 a 1)
-    //             success(result) {
-    //                 resolve(result);
-    //             },
-    //             error(err) {
-    //                 reject(err);
-    //             },
-    //         });
-    //     });
-    //     return compressedImage;
-    // };
+export const getAll = async () => {
+    let list = [];
 
-    const Enviando = async() => {
-        const ImgEnviadas = [];
-        const randomName = createID();
+    const imagesFolder = ref(storage, BancoImage);
+    const photoList = await listAll(imagesFolder);
 
-        for (const IMG of Imagens) {
-            const ImagemRef = ref(storage, `${BancoImage}/${IMG.name}`);
-            await uploadBytes(ImagemRef, IMG);
-            const url = await getDownloadURL(ImagemRef);
+    for (let uniItem in photoList.items) {
+        let photoRef = photoList.items[uniItem];
+        let photoURL = await getDownloadURL(photoRef);
+        
+        // Obtendo os metadados da imagem
+        let metadata = await getMetadata(photoRef);
+        let uploadDate = new Date(metadata.timeCreated);
 
-            const metadata = await getMetadata(ImagemRef);
-            const uploadDate = new Date(metadata.timeCreated);
+        list.push({
+            name: photoRef.name,
+            url: photoURL,
+            date: uploadDate  // Adicionando a data ao objeto
+        });
 
-            const ImagemData = {name: randomName, url, date: uploadDate};
-            const docRef = await addDoc(collection(db, BancoImage), ImagemData);
-            ImgEnviadas.push({ ...ImagemData, id: docRef.id })
-        }
+        // console.log('data aqui:', uploadDate);  // Exibindo a data no console
+    }
 
-        // Comprimir a imagem antes de enviar
-        // const compressedImage = await compressImage(file);
-        // let result = await Photos.insert(compressedImage);
+    // Ordenar a lista pela data (mais recentes primeiro)
+    list.sort((a, b) => b.date - a.date);
 
-        onUpload(ImgEnviadas);
-    };
-
-    return(
-        <div>
-            <input 
-                type="file" 
-                accept="image/*"
-                multiple
-                onChange={(e) => setImagens([...e.target.files])} 
-            />
-            <button onClick={Enviando}>Upload</button>
-        </div>
-    )
+    return list;
 }
 
+export const insert = async (file) => {
+    if (['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'].includes(file.type)) {
+        let randomName = createID();
+        let newFile = ref(storage, `${BancoImage}/${randomName}`);
 
+        let upload = await uploadBytes(newFile, file);
+        let photoURL = await getDownloadURL(upload.ref);
+
+        return { 
+            name: upload.ref.name, 
+            url: photoURL 
+        };
+    } else {
+        return new Error("Tipo de arquivo não permitido.");
+    }
+}

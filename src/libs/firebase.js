@@ -1,8 +1,18 @@
 import { initializeApp } from 'firebase/app';
 import { getStorage } from 'firebase/storage';
-import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
+
+  // Galeria VitorVilela***
+  // apiKey: "AIzaSyBrY1fRaxThXYYfXiCNP0FRkvQXkInqxEg",
+  // authDomain: "vrvitorvilela.firebaseapp.com",
+  // projectId: "vrvitorvilela",
+  // storageBucket: "vrvitorvilela.appspot.com",
+  // messagingSenderId: "610792541375",
+  // appId: "1:610792541375:web:7a18eb48472c42a70cca0a",
+  // measurementId: "G-2R70SM0Z4K"
+
+  //Galeria React***
   apiKey: "AIzaSyACf3R945C3q3IEOAmbPg2DFGEVrKNFKyA",
   authDomain: "galeriareact-ddfd6.firebaseapp.com",
   projectId: "galeriareact-ddfd6",
@@ -14,9 +24,4 @@ const firebaseConfig = {
 
   
 const firebaseApp = initializeApp(firebaseConfig);
-const storage = getStorage(firebaseApp);
-const db = getFirestore(firebaseApp)
-
-const BancoImage = "ImagensPublic";
-
-export { storage, db, BancoImage };
+export const storage = getStorage(firebaseApp);
